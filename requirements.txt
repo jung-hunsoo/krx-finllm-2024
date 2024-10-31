@@ -1,2 +1,6 @@
 # AI
 datasets
+litellm
+
+# General
+python-dotenv
