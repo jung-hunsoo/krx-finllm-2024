@@ -22,15 +22,17 @@ def get_random_section(long_string, length=1_000):
 
 def main():
     books_ds = load_dataset("alvanlii/finance-textbooks")["train"]
+    # web_ds = load_dataset('amphora/rewrite-se-quant')['train']
 
     texts = []
     for bt in books_ds["book_text"][:2]:
-        for i in range(2):
+        for _ in range(2):
             texts.append(get_random_section(bt, 100))
 
     qrys = []
     for text in texts:
         messages = [
+            # {"content": "Your job is creating quantitative finance questions in fluent Korean. You will be given a English QF question collected from the web. Restructure it to a test-like question, in formal Korean language. Return the question only.", "role": "system"},
             {
                 "content": "Your job is creating multi-hop reasoning questions in fluent Korean. You will be given a part of a text. Make a question based on it. The question should require multiple steps of reasoning related to the text. Return the question only without any other text.",
                 "role": "system",
@@ -43,7 +45,7 @@ def main():
     resps = [i.choices[0].message.content for i in responses]
     total_prompt_tokens_for_q = sum([r.usage.prompt_tokens for r in responses])
     total_completion_tokens_for_q = sum([r.usage.completion_tokens for r in responses])
-    result_df = pd.DataFrame({"sampled_text": texts, "question": resps})
+    result_df = pd.DataFrame({"content": texts, "question": resps})
 
     qrys = []
     for t in resps:
@@ -86,7 +88,7 @@ def main():
     )
 
     os.makedirs("output", exist_ok=True)
-    result_df.to_csv("output/generated.csv")
+    result_df.to_csv("output/generated.csv", index=False)
     # Upload to HF
     result_ds = Dataset.from_pandas(result_df)
     # result_ds.push_to_hub("hf/dataset", token=os.getenv("HF_TOKEN"))
