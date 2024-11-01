@@ -11,5 +11,6 @@
 
 2) Install dependencies
 
-    `pip install -r requirements.txt`
-
+    ```bash
+    pip install -U -q --no-cache-dir -r requirements.txt
+    ```
