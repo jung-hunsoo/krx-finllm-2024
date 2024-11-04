@@ -13,7 +13,7 @@
 ## 모델 세부 정보
 
 1) 모델 링크: [https://huggingface.co/DoumAI](https://huggingface.co/DoumAI)
-2) 베이스 모델: unsloth/Qwen2.5-7B-Instruct
+2) 베이스 모델: [unsloth/Qwen2.5-7B-Instruct](https://huggingface.co/unsloth/Qwen2.5-7B-Instruct)
 3) 데이터셋 설명
 
     - AI Hub > 금융 분야 다국어 병렬 말뭉치 데이터 > 라벨링데이터 > 영어
