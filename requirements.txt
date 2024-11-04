@@ -1,6 +1,7 @@
-# AI
+# AI/ML
 datasets
 litellm
+polars
 
 # General
 python-dotenv
