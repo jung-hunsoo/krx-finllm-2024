@@ -27,7 +27,10 @@
     
     4) 생성된 데이터셋을 병합 (`merge_generated.py`)
 
-5) 총 학습시간 분 (Tesla T4 15 GB, CUDA 12.2)
+5) 총 학습시간
+
+    - 학습: 31 분 (400 epochs @ Tesla T4 15 GB, CUDA 12.2)
+    - 모델 저장 및 HF 업로드: 약 30분
 
 ## 학습 데이터셋
 
