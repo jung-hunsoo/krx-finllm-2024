@@ -1,6 +1,7 @@
 .venv/
 __pycache__/
 data/
-output/
+unused/
 
 .env.secret
+nohup.out
