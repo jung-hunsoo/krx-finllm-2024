@@ -4,13 +4,10 @@ import argparse
 import os
 import polars as pl
 import random
-
 from dotenv import load_dotenv
 from glob import glob
 from openai import OpenAI
 from pydantic import BaseModel
-
-from utils import generate_gpt
 
 # Load environment variables
 for env_filename in [".env", ".env.secret"]:
